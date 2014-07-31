@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html ng-app="userRegistrationModule">
+<head>
+    <title>Simple Registration Form</title>
+    <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="Scripts/angular.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            width: 79px;
+        }
+    </style>
+</head>
+<body ng-controller="userRegistrationController">
+    
+        <div class="panel panel-default">
+          <div class="panel-heading">              
+            <h2 class="panel-title">Simple Registration form</h2>
+          </div>
+          <div class="panel-body">
+             <form name="userForm" class="form container" role="form" ng-submit="addUser()">
+            
+                 <div class="form-group clearfix">
+                     <label for="exampleInputName" class="col-sm-2 control-label">Name</label>
+                     <div class="col-sm-4">
+                         <input type="text" required class="form-control" name="name" placeholder="Enter name" ng-model="newUser.Name">
+                     </div>
+                     <p class="help-block" ng-show="userForm.name.$error.required && userForm.name.$dirty">
+                         Name is required.
+                     </p>
+
+                 </div>
+          
+                 <div class="form-group clearfix">
+                     <label for="exampleInputEmail" class="col-sm-2 control-label">Email address</label>
+                     <div class="col-sm-4">
+                         <input type="email" required class="form-control" name="email" placeholder="Enter email" ng-model="newUser.EmailAddress">
+                     </div>
+                     <p class="help-block" ng-show="userForm.email.$error.required && userForm.email.$dirty">
+                         Email address is required.
+                     </p>
+                 </div>
+                 <div class="form-group clearfix">
+                     <label for="exampleInputAdd1" class="col-sm-2 control-label">Address Line1</label>
+                     <div class="col-sm-4">
+                         <input type="text" required class="form-control" name="address1" placeholder="Enter addressline1" ng-model="newUser.AddressLine1">
+                     </div>
+                     <p class="help-block" ng-show="userForm.address1.$error.required && userForm.address1.$dirty">
+                         Address line 1 is required.
+                     </p>
+                 </div>
+                 <div class="form-group clearfix">
+                     <label for="exampleInputAdd2" class="col-sm-2 control-label">Address Line2</label>
+                     <div class="col-sm-4">
+                         <input type="text" required class="form-control" name="address2" placeholder="Enter addressline2" ng-model="newUser.AddressLine2">
+                     </div>
+                     <p class="help-block" ng-show="userForm.address2.$error.required && userForm.address2.$dirty">
+                         Address line 2 is required.
+                     </p>
+                 </div>
+                 <div class="form-group clearfix">
+                     <label for="exampleInputPostcode" class="col-sm-2 control-label">Postcode</label>
+                     <div class="col-sm-4">
+                         <input type="text" required class="form-control" name="postcode" placeholder="Enter postcode" ng-model="newUser.Postcode">
+                     </div>
+                     <p class="help-block" ng-show="userForm.postcode.$error.required && userForm.postcode.$dirty">
+                         Postcode is required.
+                     </p>
+                 </div>
+                 <div class="form-group clearfix">
+                     <div class="col-sm-offset-2 col-sm-10">
+                         <button type="submit" class="btn btn-default" >Add User</button>
+                     </div>
+                 </div>
+        </form>
+          </div>
+          <div class="panel-footer">Registered Users</div>
+
+        </div>
+        
+      <div class="col-md-10" id="table">
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>AddressLine1</th>
+                        <th>AddressLine2</th>
+                        <th>Postcode</th>
+                        <th>Delete?</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="user in users">                   
+                    <td class="col-md-2">{{user.Name}}</td>
+                    <td class="col-md-2">{{user.EmailAddress}}</td>
+                    <td class="col-md-2">{{user.AddressLine1}}</td>
+                    <td class="col-md-2">{{user.AddressLine2}}</td>
+                    <td class="col-md-2">{{user.Postcode}}</td>
+                    <td class="col-md-1">
+                        <a href="#" ng-click="deleteUser(user)">
+                         <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+            
+    
+
+    <script src="app/app.js"></script>
+
+    <script src="app/controllers/userRegistrationController.js"></script>
+    <script src="app/services/userRegistrationService.js"></script>
+</body>
+</html>
