@@ -7,13 +7,14 @@ using NHibernate.Tool.hbm2ddl;
 using SimpleUserRegistration.Data.DataEntities;
 using SimpleUserRegistration.Data.NHibernate.Maps;
 using System;
+using System.IO;
 using System.Reflection;
 
 namespace SimpleUserRegistration.Data.NHibernate
 {
     public class NHibernateHelper
-    {
-        private static string _connectionString = @"Data Source=I:\Kiruba\WorkSpace\SimpleUserRegistration\SimpleUserRegistration.Data\Database\UsersDB.sdf;Persist Security Info=False;";
+    {        
+        private static string _connectionString = @"Data Source=|DataDirectory|\UsersDB.sdf;Persist Security Info=False;";
         private static ISessionFactory _sessionFactory;
         private readonly Assembly _resourceAssembly;
 
