@@ -3,6 +3,8 @@ using SimpleUserRegistration.UI.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Autofac;
+using Autofac.Configuration;
 
 namespace SimpleUserRegistration.UI.Controllers
 {
@@ -17,8 +19,9 @@ namespace SimpleUserRegistration.UI.Controllers
         // GET api/default1
         public IEnumerable<User> Get()
         {
-            return _userService.GetUsers().Select(x => new User 
-            { 
+          
+            return _userService.GetUsers().Select(x => new User
+            {
                 Id = x.Id,
                 Name = x.Name,
                 EmailAddress = x.EmailAddress,
@@ -39,19 +42,20 @@ namespace SimpleUserRegistration.UI.Controllers
                 AddressLine1 = x.AddressLine1,
                 AddressLine2 = x.AddressLine2,
                 Postcode = x.Postcode
-            });
+            });        
         }
 
         // POST api/default1
         public void Post([FromBody]User value)
         {
-            _userService.AddUser(new Business.DTO.User { 
+            _userService.AddUser(new Business.DTO.User
+            {
                 Name = value.Name,
                 EmailAddress = value.EmailAddress,
                 AddressLine1 = value.AddressLine1,
                 AddressLine2 = value.AddressLine2,
                 Postcode = value.Postcode
-            });
+            });            
         }
 
         // PUT api/default1/5
@@ -63,7 +67,6 @@ namespace SimpleUserRegistration.UI.Controllers
         public void Delete(int id)
         {
             _userService.DeleteUser(id);
-            
         }
     }
 }

@@ -20,8 +20,9 @@ namespace SimpleUserRegistration.Business
         }
 
         public IEnumerable<User> GetUsers()
-        {            
-            return _userRepository.GetUsers().Select(x => x.ToDTO());
+        {
+            return _userRepository.GetUsers().Select(x => x.ToDTO());        
+            
         }
 
         public IEnumerable<User> GetUser(int id)

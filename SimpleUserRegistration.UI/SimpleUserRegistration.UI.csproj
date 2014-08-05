@@ -42,6 +42,9 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
@@ -147,8 +150,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\IocConfig.cs" />
-    <Compile Include="AutofacWebAPIDependencyResolver.cs" />
     <Compile Include="Controllers\UserRegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -530,6 +531,10 @@
     <ProjectReference Include="..\SimpleUserRegistration.Business\SimpleUserRegistration.Service.csproj">
       <Project>{30927f5c-7b78-4352-80b2-970e5d973752}</Project>
       <Name>SimpleUserRegistration.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleUserRegistration.Data\SimpleUserRegistration.Data.csproj">
+      <Project>{5e836329-4d54-4e5c-acbb-8267df795122}</Project>
+      <Name>SimpleUserRegistration.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

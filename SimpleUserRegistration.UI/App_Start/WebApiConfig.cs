@@ -1,18 +1,11 @@
-﻿using SimpleUserRegistration.UI.App_Start;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using Microsoft.Practices.Unity;
+﻿using System.Web.Http;
 
 namespace SimpleUserRegistration.UI
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
-        {
-            //IocConfig.RegisterDependencies(config);
-            
+        {            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
