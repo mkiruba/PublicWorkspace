@@ -1,5 +1,5 @@
 ﻿
-userRegistrationModule.controller('userRegistrationController', function ($scope, getUsersRepository, addUserRepository, deleteUserRepository) {
+userRegistrationModule.controller('userRegistrationController', ['$scope', 'getUsersRepository', 'addUserRepository', 'deleteUserRepository', function ($scope, getUsersRepository, addUserRepository, deleteUserRepository) {
     
     getUsers();
     function getUsers() {
@@ -13,7 +13,8 @@ userRegistrationModule.controller('userRegistrationController', function ($scope
         });
     };
 
-    $scope.addUser = function addUser() {        
+    $scope.addUser = function addUser() {
+        $scope.submitted = true;
         var promise = addUserRepository.addUser($scope.newUser);
         promise.then(function () {
             getUsers();
@@ -40,4 +41,4 @@ userRegistrationModule.controller('userRegistrationController', function ($scope
 
     };
     
-});
+}]);

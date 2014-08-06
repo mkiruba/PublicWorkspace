@@ -18,58 +18,58 @@
             <h2 class="panel-title">Simple Registration form</h2>
           </div>
           <div class="panel-body">
-             <form name="userForm" class="form container" role="form" ng-submit="addUser()">
+             <form name="userForm" class="form container" novalidate role="form" ng-submit="addUser()">
             
-                 <div class="form-group clearfix">
+                 <div class="form-group clearfix" ng-class="{'has-error' : userForm.name.$invalid && !userForm.name.$pristine}">
                      <label for="exampleInputName" class="col-sm-2 control-label">Name</label>
                      <div class="col-sm-4">
-                         <input type="text" required class="form-control" name="name" placeholder="Enter name" ng-model="newUser.Name">
+                         <input type="text" required class="form-control" name="name" placeholder="Enter name" ng-model="newUser.Name">                         
                      </div>
-                     <p class="help-block" ng-show="userForm.name.$error.required && userForm.name.$dirty">
+                     <p class="help-block" ng-show="userForm.name.$invalid && !userForm.name.$pristine">
                          Name is required.
                      </p>
 
                  </div>
           
-                 <div class="form-group clearfix">
+                 <div class="form-group clearfix" ng-class="{'has-error' : userForm.email.$invalid && !userForm.email.$pristine}">
                      <label for="exampleInputEmail" class="col-sm-2 control-label">Email address</label>
                      <div class="col-sm-4">
                          <input type="email" required class="form-control" name="email" placeholder="Enter email" ng-model="newUser.EmailAddress">
                      </div>
-                     <p class="help-block" ng-show="userForm.email.$error.required && userForm.email.$dirty">
+                     <p class="help-block" ng-show="userForm.email.$invalid && !userForm.email.$pristine">
                          Email address is required.
                      </p>
                  </div>
-                 <div class="form-group clearfix">
+                 <div class="form-group clearfix" ng-class="{'has-error' : userForm.address1.$invalid && !userForm.address1.$pristine}">
                      <label for="exampleInputAdd1" class="col-sm-2 control-label">Address Line1</label>
                      <div class="col-sm-4">
                          <input type="text" required class="form-control" name="address1" placeholder="Enter addressline1" ng-model="newUser.AddressLine1">
                      </div>
-                     <p class="help-block" ng-show="userForm.address1.$error.required && userForm.address1.$dirty">
+                     <p class="help-block" ng-show="userForm.address1.$invalid && !userForm.address1.$pristine">
                          Address line 1 is required.
                      </p>
                  </div>
-                 <div class="form-group clearfix">
+                 <div class="form-group clearfix" ng-class="{'has-error' : userForm.address2.$invalid && !userForm.address2.$pristine}">
                      <label for="exampleInputAdd2" class="col-sm-2 control-label">Address Line2</label>
                      <div class="col-sm-4">
                          <input type="text" required class="form-control" name="address2" placeholder="Enter addressline2" ng-model="newUser.AddressLine2">
                      </div>
-                     <p class="help-block" ng-show="userForm.address2.$error.required && userForm.address2.$dirty">
+                     <p class="help-block" ng-show="userForm.address2.$invalid && !userForm.address2.$pristine">
                          Address line 2 is required.
                      </p>
                  </div>
-                 <div class="form-group clearfix">
+                 <div class="form-group clearfix" ng-class="{'has-error' : userForm.postcode.$invalid && !userForm.postcode.$pristine}">
                      <label for="exampleInputPostcode" class="col-sm-2 control-label">Postcode</label>
                      <div class="col-sm-4">
                          <input type="text" required class="form-control" name="postcode" placeholder="Enter postcode" ng-model="newUser.Postcode">
                      </div>
-                     <p class="help-block" ng-show="userForm.postcode.$error.required && userForm.postcode.$dirty">
+                     <p class="help-block" ng-show="userForm.postcode.$invalid && !userForm.postcode.$pristine">
                          Postcode is required.
                      </p>
                  </div>
                  <div class="form-group clearfix">
                      <div class="col-sm-offset-2 col-sm-10">
-                         <button type="submit" class="btn btn-default" >Add User</button>
+                         <button type="submit" class="btn btn-default" ng-disabled ="userForm.$invalid">Add User</button>
                      </div>
                  </div>
         </form>
